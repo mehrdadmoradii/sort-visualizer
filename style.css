@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+body {
+    background-color: #e1dfdd;
+}
 nav {
     height: 8vh;
     border-bottom: 1px solid;
@@ -18,7 +21,6 @@ nav {
 main {
     display: flex;
     flex-direction: column;
-    background-color: #e1dfdd;
     height: 93vh;
 }
 .frame {
