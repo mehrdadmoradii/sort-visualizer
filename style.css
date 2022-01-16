@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+nav {
+    height: 8vh;
+    border-bottom: 1px solid;
+    background-color: #1b1a19;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #e1dfdd;
+    height: 93vh;
+}
+.frame {
+    width: 70vw;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffff;
+    align-items:flex-end;
+    margin: 6vh auto;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.bar {
+    background-color: #a4373a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px 4px 0px 0px;
+}
+.barlabel {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: small;
+}
+.btn-container {
+    margin: 2vh auto;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+}
+.yellow {
+    background-color: #ffaa44;
+}
+.green {
+    background-color: #217346;
+}
+.blue {
+    background-color: #106ebe;
+}
+button {
+    width: 15%;
+    height: 70px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+button:hover {
+    background-color: #f3f2f1;
+}
+.hide {
+    display: none;
+}
+@media only screen and (max-width: 1200px) {
+    .barlabel {
+        font-size: 8px;
+    }
+}
+@media only screen and (max-width: 775px) {
+    nav {
+        font-size: smaller;
+    }
+    .frame {
+        width: 90%;
+    }
+    .btn-container {
+        width: 80%;
+        display: grid;
+        grid-template-columns: auto auto;
+        row-gap: 20px;
+        column-gap: 10%;
+    }
+    button {
+        width: 100%;
+        padding: 12%;
+    }
+    .barlabel {
+        display: none;
+    }
+}
