@@ -9,12 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const frame = document.querySelector('.frame');
-const insertionSortBtn = document.querySelector('#insertion-sort-btn');
-const selectionSortBtn = document.querySelector('#selection-sort-btn');
-const heapSortBtn = document.querySelector('#heap-sort-btn');
-const mergeSortBtn = document.querySelector('#merge-sort-btn');
-const quickSortBtn = document.querySelector('#quick-sort-btn');
-const btnContainer = document.querySelector('.btn-container');
+const generateFrameBtn = document.querySelector('#generate-frame-btn');
+const startBtn = document.querySelector('#algorithm-selector-btn');
 var Colors;
 (function (Colors) {
     Colors[Colors["RED"] = 0] = "RED";
@@ -32,45 +28,34 @@ populateFrame();
 /********************************************************
  *                    Event listeners
  *********************************************************/
-insertionSortBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
+generateFrameBtn.addEventListener('click', () => {
     if (sortStarted)
-        resetFrame();
-    btnContainer.classList.add('hide');
-    yield insertionSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
-}));
-selectionSortBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
+        location.reload();
+    resetFrame();
+});
+startBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
     if (sortStarted)
-        resetFrame();
-    btnContainer.classList.add('hide');
-    yield selectionSort();
-    btnContainer.classList.remove('hide');
+        location.reload();
+    document.querySelector('.algorithm-selector-container').style.visibility = 'hidden';
     sortStarted = true;
-}));
-heapSortBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
-    if (sortStarted)
-        resetFrame();
-    btnContainer.classList.add('hide');
-    yield heapSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
-}));
-mergeSortBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
-    if (sortStarted)
-        resetFrame();
-    btnContainer.classList.add('hide');
-    yield mergeSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
-}));
-quickSortBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
-    if (sortStarted)
-        resetFrame();
-    btnContainer.classList.add('hide');
-    yield quickSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
+    const selector = document.querySelector('#algorithm-selector');
+    switch (selector.value) {
+        case 'selection':
+            yield selectionSort();
+            break;
+        case 'insertion':
+            yield insertionSort();
+            break;
+        case 'merge':
+            yield mergeSort();
+            break;
+        case 'quick':
+            yield quickSort();
+            break;
+        case 'heap':
+            yield heapSort();
+            break;
+    }
 }));
 /********************************************************
  *                   Sorting Algorithms

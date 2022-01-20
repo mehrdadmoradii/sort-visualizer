@@ -7,20 +7,38 @@
     <title>Sort Visualizer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./sort.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/21f21271e8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
-        <h1>Visualizing Sort Algorithms</h1>
+        <div class="nav-center">
+            <div class="logo">
+                <h1>Sort Visualizer</h1>
+            </div>
+            <div class="btn-container">
+                <button>
+                    <a href="https://mehrdadmoradii.github.io/path-finding-visualizer/">Path finding<i class="fas fa-link"></i></a>
+                </button>
+                <button id="generate-frame-btn">generate new frame <i class="fas fa-sync"></i></button>
+                <div class="algorithm-selector-container">
+                    <label for="algorithms">Choose an Algorithm:</label>
+                    <select name="algorithms" id="algorithm-selector" >
+                        <option value="selection">Selection Sort O(N<span>&#178;</span>)</option>
+                        <option value="insertion">Insertion Sort O(N<span>&#178;</span>)</option>
+                        <option value="merge">Merge Sort O(N log<sup>N</sup>)</option>
+                        <option value="quick">Quick Sort O(N log<sup>N</sup>)</option>
+                        <option value="heap">Heap Sort O(N log<sup>N</sup>)</option>
+                    </select>
+                    <button id="algorithm-selector-btn">
+                        Start Visualizing <i class="fas fa-play-circle"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </nav>
+
     <main>
         <div class="frame"></div>
-        <div class="btn-container">
-            <button id="selection-sort-btn">Selection Sort O(N<span>&#178;</span>)</button>
-            <button id="insertion-sort-btn">Insertion Sort O(N<span>&#178;</span>)</button>
-            <button id="merge-sort-btn">Merge Sort O(n log<sup>n</sup>)</button>
-            <button id="quick-sort-btn">Quick Sort O(n log<sup>n</sup>)</button>
-            <button id="heap-sort-btn">Heap Sort O(n log<sup>n</sup>)</button>
-        </div>
     </main>   
     <script src="./dist/script.js"></script>
 </body>

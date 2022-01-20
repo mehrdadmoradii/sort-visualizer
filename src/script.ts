@@ -1,10 +1,7 @@
 const frame = document.querySelector('.frame');
-const insertionSortBtn = document.querySelector('#insertion-sort-btn');
-const selectionSortBtn = document.querySelector('#selection-sort-btn');
-const heapSortBtn = document.querySelector('#heap-sort-btn');
-const mergeSortBtn = document.querySelector('#merge-sort-btn');
-const quickSortBtn = document.querySelector('#quick-sort-btn');
-const btnContainer = document.querySelector('.btn-container');
+
+const generateFrameBtn = document.querySelector('#generate-frame-btn');
+const startBtn =  document.querySelector('#algorithm-selector-btn');
 
 enum Colors {
     RED, GREEN, YELLOW, BLUE
@@ -25,50 +22,37 @@ populateFrame();
  *                    Event listeners
  *********************************************************/
 
-insertionSortBtn.addEventListener('click', async () => {
+generateFrameBtn.addEventListener('click', () => {
     if (sortStarted) 
-        resetFrame();
-    btnContainer.classList.add('hide');
-    await insertionSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
-});
+        location.reload();
+    resetFrame();
+})
 
-selectionSortBtn.addEventListener('click', async () => {
+startBtn.addEventListener('click', async () => {
     if (sortStarted) 
-        resetFrame();
-    btnContainer.classList.add('hide');
-    await selectionSort();
-    btnContainer.classList.remove('hide');
+        location.reload();
+    (<HTMLInputElement>document.querySelector('.algorithm-selector-container')).style.visibility = 'hidden';
     sortStarted = true;
-});
+    const selector = (<HTMLInputElement>document.querySelector('#algorithm-selector'));
+    switch (selector.value) {
+        case 'selection':
+            await selectionSort();
+            break;
+        case 'insertion':
+            await insertionSort();
+            break;
+        case 'merge':
+            await mergeSort();
+            break;
+        case 'quick':
+            await quickSort();
+            break;
+        case 'heap':
+            await heapSort();
+            break;
+    }
+})
 
-heapSortBtn.addEventListener('click', async () => {
-    if (sortStarted) 
-        resetFrame();
-    btnContainer.classList.add('hide');
-    await heapSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
-});
-
-mergeSortBtn.addEventListener('click', async () => {
-    if (sortStarted) 
-        resetFrame();
-    btnContainer.classList.add('hide');
-    await mergeSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
-});
-
-quickSortBtn.addEventListener('click', async () => {
-    if (sortStarted) 
-        resetFrame();
-    btnContainer.classList.add('hide');
-    await quickSort();
-    btnContainer.classList.remove('hide');
-    sortStarted = true;
-});
 
 /********************************************************
  *                   Sorting Algorithms
